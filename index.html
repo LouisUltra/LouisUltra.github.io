@@ -3,161 +3,352 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>LIN Xingyu | AI Engineering & Research</title>
-<meta name="description" content="LIN Xingyu - M.Eng. AI at ECNU. Four first-author submissions under review (ICSE/ICRA/ICASSP/BIBM), enterprise multi-agent platform architect.">
+<title>LIN Xingyu — AI Engineering &amp; Research</title>
+<meta name="description" content="LIN Xingyu — M.Eng. AI, ECNU. Four first-author submissions under review (ICSE · ICRA · ICASSP · BIBM). Enterprise multi-agent platform architect.">
 <style>
+/* ————————————————————————————————
+   LIN XINGYU · personal page
+   editorial / journal-style design system
+   serif display · hairline rules · single accent
+———————————————————————————————— */
 :root{
-  --ink:#1a1a1a; --gray:#555; --light:#888; --line:#e5e5e5; --bg:#fdfdfc;
-  --accent:#b34700; --card:#ffffff; --chip:#f2efe9;
+  --paper:#FAF9F6;         /* warm paper, not pure white */
+  --ink:#191714;           /* near-black with warmth */
+  --ink-2:#4A4642;         /* body gray */
+  --ink-3:#8C8780;         /* meta gray */
+  --rule:#E6E2DA;          /* hairline */
+  --accent:#8B2500;        /* single accent: deep brick red */
+  --accent-soft:rgba(139,37,0,.08);
+  --serif:Georgia,"Times New Roman","Songti SC","SimSun",serif;
+  --sans:"Helvetica Neue",Helvetica,"PingFang SC","Microsoft YaHei",Arial,sans-serif;
+  --mono:"SF Mono","JetBrains Mono",Consolas,Menlo,monospace;
 }
 *{margin:0;padding:0;box-sizing:border-box}
-body{font-family:"Helvetica Neue",Helvetica,"PingFang SC","Microsoft YaHei",Arial,sans-serif;
-     color:var(--ink);background:var(--bg);line-height:1.65;font-size:16px}
-.wrap{max-width:860px;margin:0 auto;padding:48px 24px 80px}
-a{color:var(--accent);text-decoration:none;border-bottom:1px solid rgba(179,71,0,.25)}
-a:hover{border-bottom-color:var(--accent)}
-h1{font-size:34px;letter-spacing:.5px;font-weight:700}
-h2{font-size:15px;letter-spacing:2.5px;text-transform:uppercase;color:var(--gray);
-   margin:56px 0 18px;font-weight:700;border-bottom:2px solid var(--line);padding-bottom:8px}
-.tag{display:inline-block;font-size:12.5px;background:var(--chip);color:var(--gray);
-     border-radius:3px;padding:2px 9px;margin:2px 4px 2px 0;white-space:nowrap}
-.card{background:var(--card);border:1px solid var(--line);border-radius:8px;
-      padding:22px 24px;margin-bottom:16px;box-shadow:0 1px 3px rgba(0,0,0,.04)}
-.card h3{font-size:17.5px;margin-bottom:6px;line-height:1.4}
-.card .meta{font-size:13px;color:var(--light);margin-bottom:10px}
-.card p{font-size:14.5px;color:var(--gray)}
-.stat-row{display:flex;gap:28px;flex-wrap:wrap;margin-top:22px}
-.stat b{display:block;font-size:26px;color:var(--ink);line-height:1.2}
-.stat span{font-size:12.5px;color:var(--light)}
-ul.links{list-style:none;margin-top:10px}
-ul.links li{font-size:14.5px;color:var(--gray);padding:3px 0}
-ul.links li b{color:var(--ink)}
-.foot{margin-top:64px;padding-top:20px;border-top:1px solid var(--line);
-      font-size:12.5px;color:var(--light)}
-@media print{body{background:#fff}.card{box-shadow:none;break-inside:avoid}}
+html{scroll-behavior:smooth}
+body{
+  font-family:var(--sans);color:var(--ink);background:var(--paper);
+  font-size:16px;line-height:1.72;-webkit-font-smoothing:antialiased;
+  text-rendering:optimizeLegibility;
+}
+::selection{background:var(--accent);color:#fff}
+.page{max-width:720px;margin:0 auto;padding:88px 28px 96px}
+
+/* ————— masthead ————— */
+.masthead{border-bottom:1px solid var(--ink);padding-bottom:34px}
+.masthead .kicker{
+  font-family:var(--sans);font-size:11px;letter-spacing:.32em;
+  text-transform:uppercase;color:var(--ink-3);margin-bottom:26px;
+}
+h1{
+  font-family:var(--serif);font-weight:400;font-size:clamp(38px,7vw,54px);
+  letter-spacing:.01em;line-height:1.12;
+}
+h1 .accent{color:var(--accent);font-style:italic}
+.masthead .role{
+  font-family:var(--sans);font-size:14.5px;color:var(--ink-2);
+  margin-top:18px;max-width:56ch;
+}
+.masthead .role em{font-style:normal;color:var(--ink)}
+.facts{
+  font-family:var(--serif);font-size:15px;color:var(--ink-2);
+  margin-top:30px;line-height:2.05;letter-spacing:.01em;
+}
+.facts b{font-weight:600;color:var(--ink);font-variant-numeric:oldstyle-nums}
+.facts .sep{color:var(--ink-3);padding:0 .55em}
+
+/* ————— section headers ————— */
+section{margin-top:74px}
+.sec-head{
+  display:flex;align-items:baseline;gap:14px;
+  border-bottom:1px solid var(--rule);padding-bottom:10px;margin-bottom:8px;
+}
+.sec-head .no{
+  font-family:var(--serif);font-style:italic;font-size:13px;color:var(--accent);
+}
+.sec-head h2{
+  font-family:var(--sans);font-weight:700;font-size:12px;
+  letter-spacing:.26em;text-transform:uppercase;color:var(--ink);
+}
+.sec-head .count{
+  margin-left:auto;font-family:var(--serif);font-style:italic;
+  font-size:12.5px;color:var(--ink-3);
+}
+
+/* ————— publication list: journal-catalog style ————— */
+.pub{display:grid;grid-template-columns:112px 1fr;gap:0 26px;padding:26px 0 24px;
+     border-bottom:1px solid var(--rule)}
+.pub:last-child{border-bottom:none}
+.pub .venue{
+  font-family:var(--sans);font-size:10.5px;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--ink-3);line-height:1.9;
+  padding-top:6px;
+}
+.pub .venue .v-main{color:var(--ink);font-weight:700}
+.pub .venue .v-note{display:block;color:var(--accent);font-weight:600}
+.pub h3{
+  font-family:var(--serif);font-weight:600;font-size:19.5px;line-height:1.42;
+  letter-spacing:.005em;text-wrap:balance;
+}
+.pub .meta{
+  font-family:var(--sans);font-size:12.5px;color:var(--ink-3);
+  margin:6px 0 12px;letter-spacing:.02em;
+}
+.pub .meta .u{color:var(--accent)}
+.pub p{
+  font-size:14.5px;color:var(--ink-2);line-height:1.78;
+  text-align:justify;hyphens:auto;
+}
+.pub p b{font-weight:600;color:var(--ink)}
+
+/* ————— engineering entries ————— */
+.eng{padding:24px 0 22px;border-bottom:1px solid var(--rule)}
+.eng:last-child{border-bottom:none}
+.eng h3{font-family:var(--serif);font-weight:600;font-size:18px;line-height:1.45}
+.eng .meta{font-family:var(--sans);font-size:12.5px;color:var(--ink-3);margin:5px 0 10px}
+.eng p{font-size:14.5px;color:var(--ink-2);text-align:justify}
+.repos{list-style:none;margin-top:2px}
+.repos li{
+  font-size:14px;color:var(--ink-2);padding:7px 0;
+  border-bottom:1px dotted var(--rule);
+  display:flex;justify-content:space-between;gap:18px;align-items:baseline;
+}
+.repos li:last-child{border-bottom:none}
+.repos .r-name{font-family:var(--mono);font-size:13px;color:var(--ink)}
+.repos .r-desc{color:var(--ink-3);font-size:13px;text-align:right}
+
+/* ————— certification ————— */
+.cert{padding:22px 0;border-bottom:1px solid var(--rule)}
+.cert:last-child{border-bottom:none}
+.cert h3{font-family:var(--serif);font-size:17px;font-weight:600}
+.cert .meta{font-family:var(--sans);font-size:12.5px;color:var(--ink-3);margin:4px 0 10px}
+.cert p{font-size:14px;color:var(--ink-2)}
+.cert .vcode{font-family:var(--mono);font-size:12px;color:var(--ink-3)}
+
+/* ————— contact ————— */
+.contact{padding-top:4px}
+.contact .row{
+  display:flex;gap:40px;flex-wrap:wrap;font-size:14.5px;color:var(--ink-2);
+  padding:18px 0;border-bottom:1px dotted var(--rule);
+}
+.contact .row:last-child{border-bottom:none}
+.contact .k{
+  font-family:var(--sans);font-size:11px;letter-spacing:.22em;
+  text-transform:uppercase;color:var(--ink-3);min-width:84px;padding-top:3px;
+}
+a{color:var(--accent);text-decoration:none;
+  background:linear-gradient(var(--accent-soft),var(--accent-soft)) left bottom / 0 1px no-repeat;
+  transition:background-size .35s ease;padding-bottom:1px}
+a:hover{background-size:100% 1px}
+a.plain{color:inherit;background:none;transition:none}
+a.plain:hover{color:var(--accent)}
+
+/* ————— colophon ————— */
+.colophon{
+  margin-top:84px;border-top:1px solid var(--ink);padding-top:22px;
+  font-family:var(--serif);font-style:italic;font-size:12.5px;
+  color:var(--ink-3);line-height:1.9;
+}
+.colophon .fin{
+  font-style:normal;font-family:var(--sans);font-size:10.5px;
+  letter-spacing:.3em;text-transform:uppercase;color:var(--ink-3);
+  margin-top:14px;
+}
+
+@media (max-width:560px){
+  .page{padding:56px 20px 72px}
+  .pub{grid-template-columns:1fr;gap:6px 0}
+  .pub .venue{display:flex;gap:12px;padding-top:0}
+  .contact .row{gap:0;flex-direction:column}
+  .contact .k{min-width:0;margin-bottom:2px}
+}
+@media print{
+  body{background:#fff;color:#111}
+  .page{padding:0;max-width:100%}
+  .colophon{margin-top:32px}
+  a{color:#111}
+}
 </style>
 </head>
 <body>
-<div class="wrap">
+<div class="page">
 
-<header>
-  <h1>LIN Xingyu&nbsp;·&nbsp;林星宇</h1>
-  <p style="margin-top:8px;color:var(--gray);font-size:16.5px">
-    M.Eng. in Artificial Intelligence, East China Normal University (Class of 2027)&nbsp;·&nbsp;Shanghai
+<!-- ——— masthead ——— -->
+<header class="masthead">
+  <div class="kicker">AI Engineering · Research · Shanghai</div>
+  <h1>Lin&nbsp;Xingyu<span class="accent">&nbsp;林星宇</span></h1>
+  <p class="role">
+    <em>Engineer-turned-researcher.</em>&nbsp;Architect of a ~190K-line enterprise
+    multi-agent platform; converts production problems into first-author research —
+    rigorous evaluation, controlled experiments, methods that ship back.
+    M.Eng. in AI, East China Normal University, Class of 2027.
   </p>
-  <p style="margin-top:14px;font-size:15px;color:var(--gray);max-width:640px">
-    AI engineer-turned-researcher: architect of a ~190K-line enterprise multi-agent coding platform,
-    who converts production problems into first-author research — rigorous evaluation, controlled
-    experiments, and methods that ship back into engineering.
-  </p>
-  <div class="stat-row">
-    <div class="stat"><b>4</b><span>first-author submissions under review</span></div>
-    <div class="stat"><b>1</b><span>invention patent filed (first inventor)</span></div>
-    <div class="stat"><b>190K</b><span>lines, lead architect</span></div>
-    <div class="stat"><b>10B+</b><span>tokens scheduled at scale</span></div>
-  </div>
-  <div style="margin-top:20px">
-    <span class="tag">AI4SE / Code Intelligence</span><span class="tag">Robotics · VLA Evaluation</span>
-    <span class="tag">Document Parsing</span><span class="tag">LLM Evaluation</span>
-    <span class="tag">Multi-Agent Systems</span><span class="tag">RAG</span>
+  <div class="facts">
+    <b>4</b> first-author submissions under review<span class="sep">·</span>
+    <b>1</b> invention patent filed<span class="sep">·</span>
+    <b>7</b> software copyrights<span class="sep">·</span>
+    <b>10B+</b> tokens scheduled in production
   </div>
 </header>
 
-<h2>Publications · first author, under review</h2>
+<!-- ——— publications ——— -->
+<section>
+  <div class="sec-head">
+    <span class="no">I.</span>
+    <h2>Publications</h2>
+    <span class="count">first author · all under review</span>
+  </div>
 
-<div class="card">
-  <h3>Semantic Indexing for Agentic Code Localization in Large Repositories (Code Atlas)</h3>
-  <div class="meta">ICSE 2027 (CCF-A) · under review · double-blind</div>
-  <p>Product-style natural-language queries fail to locate code in industrial repositories —
-  the best commercial agents drop from 96%+ to 52.9% at scale. A three-layer Graph-RAG method:
-  dependency-topological semantic indexing with bilingual AST-validated descriptions,
-  HAC module clustering, and staged retrieval. Top-1 (W-R@5) across all five benchmarked
-  repositories up to 49K files; 97.9% on SWE-bench Verified; 34 controlled ablations.
-  Patent filed (first inventor); piloted on real business modules.</p>
-</div>
+  <article class="pub">
+    <div class="venue">
+      <span class="v-main">ICSE 2027</span>
+      <span class="v-note">CCF-A</span>
+      double-blind
+    </div>
+    <div>
+      <h3>Semantic Indexing for Agentic Code Localization in Large&nbsp;Repositories</h3>
+      <div class="meta">Code Atlas · <span class="u">under review</span> · patent filed, first inventor · piloted on real business modules</div>
+      <p>
+        Product-style natural-language queries fail to locate code in industrial
+        repositories — the strongest commercial agents fall from 96%+ to 52.9% at scale,
+        grep-based baselines to 1.3%. A three-layer Graph-RAG method: dependency-topological
+        semantic indexing with bilingual, AST-validated descriptions; HAC module clustering;
+        staged retrieval. <b>Top-1 (W-R@5) on all five benchmarked repositories</b> up to 49K
+        files, <b>97.9% on SWE-bench Verified</b>, established over 34 controlled ablations.
+      </p>
+    </div>
+  </article>
 
-<div class="card">
-  <h3>Outcome-Conditioned End-Effector Geometry Across Vision-Language-Action Policies</h3>
-  <div class="meta">ICRA 2027 · under review · double-blind</div>
-  <p>Task success alone does not establish whether VLA policies physically execute alike.
-  Cross-policy end-effector geometry over 15,000 closed-loop LIBERO rollouts from four policies
-  (OpenVLA / OpenVLA-OFT / UniVLA / π0.5): both-success pairs sit at a median DTW of 0.0120 m
-  versus 0.0380 m when exactly one succeeds — an ordering that holds across every task, pair and
-  representation. A matched comparison design: outcome strata, configuration-matched pairs,
-  within-policy baselines, demonstration references, fixed windows, alignment sensitivity.</p>
-</div>
+  <article class="pub">
+    <div class="venue">
+      <span class="v-main">ICRA 2027</span>
+      double-blind
+    </div>
+    <div>
+      <h3>Outcome-Conditioned End-Effector Geometry Across Vision-Language-Action Policies</h3>
+      <div class="meta"><span class="u">under review</span> · 15,000 closed-loop LIBERO rollouts · four policies</div>
+      <p>
+        Task success alone does not establish whether VLA policies execute alike. Cross-policy
+        end-effector geometry over 15,000 closed-loop rollouts of OpenVLA, OpenVLA-OFT, UniVLA
+        and π0.5: <b>both-success pairs sit at a median DTW of 0.0120&nbsp;m versus 0.0380&nbsp;m</b>
+        when exactly one succeeds — an ordering that holds across every task, pair and
+        representation examined. A matched comparison design throughout: outcome strata,
+        configuration-matched pairs, within-policy baselines, demonstration references.
+      </p>
+    </div>
+  </article>
 
-<div class="card">
-  <h3>Collapse, Not Complexity: Failure-Conditioned Decomposition Repair for End-to-End Document Parsing</h3>
-  <div class="meta">ICASSP 2027 · under review · with advisor</div>
-  <p>Complexity is the wrong decision variable for document-VLM reasoning modes: reasoning lowers
-  mean quality (−2.21 Overall) at 1.54× tokens, and pre-inference features cannot predict its
-  benefit (AUROC 0.47). Benefit concentrates on pages whose ordinary pass has collapsed —
-  a repetition pathology, not layout difficulty. A reference-free trigger on the already-paid
-  decoding trace, followed by projection-based decomposition and region re-parsing:
-  +1.40 Overall at 1.13× tokens, replicating across 3B–8B backbones; +2.41 (CI [1.64, 3.46])
-  on 1,175 held-out benchmark pages with all parameters frozen.</p>
-</div>
+  <article class="pub">
+    <div class="venue">
+      <span class="v-main">ICASSP 2027</span>
+      with advisor
+    </div>
+    <div>
+      <h3>Collapse, Not Complexity: Failure-Conditioned Decomposition Repair for End-to-End Document Parsing</h3>
+      <div class="meta"><span class="u">under review</span> · with Dehui Du (advisor) · East China Normal University</div>
+      <p>
+        Complexity is the wrong decision variable for document-VLM reasoning modes: reasoning
+        lowers mean quality by 2.21 Overall at 1.54× tokens, and pre-inference features cannot
+        predict its benefit (AUROC 0.47). Benefit concentrates where the ordinary pass has
+        already collapsed — a repetition pathology, not layout difficulty. A reference-free
+        trigger on the already-paid decoding trace, then projection-based decomposition and
+        region re-parsing: <b>+1.40 Overall at 1.13× tokens</b>, replicating across 3B–8B
+        backbones; <b>+2.41 (95% CI [1.64, 3.46])</b> on 1,175 held-out pages, parameters frozen.
+      </p>
+    </div>
+  </article>
 
-<div class="card">
-  <h3>From PDF to Evidence: Structure-Aware Retrieval for Clinical Practice Guidelines</h3>
-  <div class="meta">IEEE BIBM 2026 · under review · sole author · double-blind</div>
-  <p>Clinical guidelines are published as unstructured PDFs whose tables, flowcharts and graded
-  recommendations carry the key evidence. Structure-aware evidence units — sections, table rows,
-  flowchart paths, graded recommendations with preserved headers and branch labels — achieve the
-  best element-level localization across BM25 / Dense / Hybrid retrievers (Hit@1 0.382) at 3.8×
-  less context than page-level retrieval, on a 26-document, 16-specialty corpus with 199 annotated
-  queries (p&nbsp;&lt;&nbsp;0.005).</p>
-</div>
+  <article class="pub">
+    <div class="venue">
+      <span class="v-main">IEEE BIBM</span>
+      2026 · sole author
+    </div>
+    <div>
+      <h3>From PDF to Evidence: Structure-Aware Retrieval for Clinical Practice Guidelines</h3>
+      <div class="meta"><span class="u">under review</span> · sole author · 26 guidelines · 199 annotated queries</div>
+      <p>
+        Clinical guidelines ship as unstructured PDFs whose tables, flowcharts and graded
+        recommendations carry the key evidence. Structure-aware evidence units — sections,
+        table rows, flowchart paths, graded recommendations with preserved headers and branch
+        labels — achieve <b>the best element-level localization</b> across BM25 / Dense / Hybrid
+        retrievers (Hit@1 0.382) at 3.8× less context than page-level retrieval (p&nbsp;&lt;&nbsp;0.005).
+      </p>
+    </div>
+  </article>
+</section>
 
-<h2>Engineering</h2>
+<!-- ——— engineering ——— -->
+<section>
+  <div class="sec-head">
+    <span class="no">II.</span>
+    <h2>Engineering</h2>
+    <span class="count">shipped, not prototyped</span>
+  </div>
 
-<div class="card">
-  <h3>Enterprise Multi-Agent AI Coding Platform</h3>
-  <div class="meta">Xiaohongshu · AI Engineering Intern · Feb 2026 – Present · technical validation platform</div>
-  <p>Lead architect (~190K lines, 15+ subsystems): Master-SubAgent orchestration with a 15-step
-  security pipeline, 8-level fault-tolerant editing with Lint-verified self-healing, hybrid RAG
-  (pgvector + BM25 + knowledge graph), 4 MCP services, and an LLM gateway unifying 19 models with
-  failover and usage accounting at 10B+ token scale.</p>
-</div>
+  <article class="eng">
+    <h3>Enterprise Multi-Agent AI Coding Platform</h3>
+    <div class="meta">Xiaohongshu · AI Engineering Intern · Feb 2026 – Present · technical-validation platform</div>
+    <p>
+      Lead architect of a ~190K-line platform (15+ subsystems) automating
+      one-requirement-to-verified-code: Master-SubAgent orchestration behind a 15-step security
+      pipeline, 8-level fault-tolerant editing with Lint-verified self-healing, hybrid RAG
+      (pgvector + BM25 + knowledge graph), four MCP services, and an LLM gateway unifying
+      19 models with failover, cooldown and usage accounting at 10B+ token scale.
+    </p>
+  </article>
 
-<div class="card">
-  <h3>Open Source</h3>
-  <ul class="links">
-    <li><b>LLM-Value-Eval-Framework</b> — automated evaluation of 10+ models; 100K+ unattended calls at 99%+ success ·
-        <a href="https://github.com/LouisUltra/LLM-Value-Eval-Framework">GitHub</a></li>
-    <li><b>Enterprise-Support-Agent</b> — human-in-the-loop customer-service agent (70% takeover, 5 min → 45 s);
-        software copyright 2026SR0597365 ·
-        <a href="https://github.com/LouisUltra/Enterprise-Support-Agent">GitHub</a></li>
-    <li><b>More repositories</b> ·
-        <a href="https://github.com/LouisUltra?tab=repositories">github.com/LouisUltra</a></li>
-  </ul>
-</div>
+  <article class="eng">
+    <h3>Selected Open Source</h3>
+    <div class="meta">github.com/<a href="https://github.com/LouisUltra" class="plain">LouisUltra</a></div>
+    <ul class="repos">
+      <li>
+        <span class="r-name">LLM-Value-Eval-Framework</span>
+        <span class="r-desc">evaluation of 10+ models · 100K+ unattended calls at 99%+ success</span>
+      </li>
+      <li>
+        <span class="r-name">Enterprise-Support-Agent</span>
+        <span class="r-desc">human-in-the-loop agent · 70% takeover · software copyright 2026SR0597365</span>
+      </li>
+    </ul>
+  </article>
+</section>
 
-<h2>Certification</h2>
+<!-- ——— certification ——— -->
+<section>
+  <div class="sec-head">
+    <span class="no">III.</span>
+    <h2>Certification</h2>
+  </div>
 
-<div class="card">
-  <h3>Forage × Mastercard · Advisors &amp; Consulting Services Job Simulation</h3>
-  <div class="meta">Certificate of Completion · Sep 2026</div>
-  <p>Promotion optimization (25-store historical analysis, matched-control test design) and
-  data-driven storytelling (client-facing presentation). Enrolment verification code
-  6aa1005572c3c371115966fb.</p>
-</div>
+  <article class="cert">
+    <h3>Forage × Mastercard — Advisors &amp; Consulting Services Job Simulation</h3>
+    <div class="meta">Certificate of Completion · September 2026</div>
+    <p>
+      Promotion optimization (25-store historical analysis, matched-control test design) and
+      data-driven storytelling (client-facing presentation).
+      <span class="vcode">Enrolment&nbsp;verification&nbsp;6aa1005572c3c371115966fb</span>
+    </p>
+  </article>
+</section>
 
-<h2>Contact</h2>
-<div class="card">
-  <ul class="links">
-    <li><b>Email</b>&nbsp;&nbsp;xingyulin@stu.ecnu.edu.cn</li>
-    <li><b>GitHub</b>&nbsp;&nbsp;<a href="https://github.com/LouisUltra">github.com/LouisUltra</a></li>
-    <li><b>Phone</b>&nbsp;&nbsp;+86 183-1508-0199</li>
-  </ul>
-</div>
+<!-- ——— contact ——— -->
+<section class="contact">
+  <div class="sec-head">
+    <span class="no">IV.</span>
+    <h2>Contact</h2>
+  </div>
+  <div class="row"><span class="k">Email</span><span>xingyulin@stu.ecnu.edu.cn</span></div>
+  <div class="row"><span class="k">GitHub</span><span><a href="https://github.com/LouisUltra">github.com/LouisUltra</a></span></div>
+  <div class="row"><span class="k">Phone</span><span>+86 183-1508-0199</span></div>
+</section>
 
-<div class="foot">
-  Papers under double-blind review (ICSE / ICRA / BIBM) are listed at title-and-abstract level;
-  full texts are available upon reasonable request and will be published here upon acceptance.
-  Last updated: Sep 2026.
-</div>
+<!-- ——— colophon ——— -->
+<footer class="colophon">
+  Papers under double-blind review (ICSE · ICRA · BIBM) are listed at title-and-abstract
+  level; full texts are available upon reasonable request and will be published here upon
+  acceptance.<br>
+  Set in Georgia &amp; PingFang SC · a single page, no frameworks ·
+  <span class="fin">Last revised September 2026</span>
+</footer>
 
 </div>
 </body>
