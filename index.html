@@ -55,7 +55,11 @@ h1 .cjk{
   font-family:var(--serif);font-size:15.5px;color:var(--ink-2);
   margin-top:34px;letter-spacing:.01em;white-space:nowrap;
 }
-.facts b{font-weight:600;color:var(--ink);font-variant-numeric:oldstyle-nums}
+.facts .k{
+  display:block;font-family:var(--sans);font-size:10px;letter-spacing:.3em;
+  text-transform:uppercase;color:var(--ink-3);margin-bottom:8px;
+}
+.facts b{font-weight:400;color:var(--ink);font-variant-numeric:oldstyle-nums}
 .facts .sep{color:var(--rule-2);padding:0 .5em}
 
 /* ————— section headers ————— */
@@ -89,33 +93,32 @@ section{margin-top:76px}
   letter-spacing:.004em;text-wrap:balance;
 }
 .pub .meta{font-size:12.5px;color:var(--ink-3);margin:7px 0 13px;letter-spacing:.02em}
-.pub .meta .hero{color:var(--ink);font-weight:600}
+.pub .meta .hero{color:var(--ink)}
 .pub p{
   font-size:14.5px;color:var(--ink-2);line-height:1.8;
   text-align:left;max-width:58ch;
 }
 
 /* ————— engineering ————— */
-.eng{padding:26px 0 24px;border-bottom:1px solid var(--rule)}
+.eng{display:grid;grid-template-columns:118px 1fr;gap:0 28px;
+     padding:26px 0 24px;border-bottom:1px solid var(--rule)}
 .eng:last-child{border-bottom:none}
+.eng .venue{
+  font-size:10.5px;letter-spacing:.15em;text-transform:uppercase;
+  color:var(--ink-3);line-height:2.0;padding-top:6px;
+}
+.eng .venue .v-main{color:var(--ink);font-weight:700;display:block}
 .eng h3{font-family:var(--serif);font-weight:600;font-size:18px;line-height:1.45}
 .eng .meta{font-size:12.5px;color:var(--ink-3);margin:5px 0 11px}
 .eng p{font-size:14.5px;color:var(--ink-2);text-align:left;max-width:60ch}
-.repos{list-style:none;margin-top:4px}
-.repos li{
-  font-size:13.5px;color:var(--ink-2);padding:8px 0;
-  border-bottom:1px dotted var(--rule);
-  display:flex;justify-content:space-between;gap:18px;align-items:baseline;
-}
+.repos{list-style:none;margin-top:2px}
+.repos li{padding:7px 0;border-bottom:1px dotted var(--rule)}
 .repos li:last-child{border-bottom:none}
 .repos .r-name{font-family:var(--mono);font-size:12.5px;color:var(--ink)}
-.repos .r-desc{color:var(--ink-3);font-size:12.5px;text-align:right}
-.cert-line{
-  padding-top:18px;margin-top:6px;border-top:1px dotted var(--rule);
-  font-size:13.5px;color:var(--ink-2);
-}
-.cert-line b{font-weight:600;color:var(--ink)}
-.cert-line .vlink{font-size:12.5px}
+.repos .r-desc{display:block;color:var(--ink-3);font-size:12.5px;margin-top:2px}
+.cert-line{font-size:13.5px;color:var(--ink-2);margin-top:14px;padding-top:14px;border-top:1px dotted var(--rule)}
+.cert-line .t{font-family:var(--serif);font-size:15px;color:var(--ink)}
+.cert-line .vlink{font-size:12.5px;white-space:nowrap}
 
 /* ————— contact ————— */
 .contact .row{
@@ -170,6 +173,7 @@ a.plain:hover{color:var(--accent)}
     M.Eng. in AI, East China Normal University, Class of 2027.
   </p>
   <div class="facts">
+    <span class="k">In numbers</span>
     <b>4</b> first-author submissions<span class="sep">·</span><b>1</b> patent filed<span class="sep">·</span><b>7</b> software copyrights<span class="sep">·</span><b>10B+</b> tokens in production
   </div>
 </header>
@@ -265,34 +269,38 @@ a.plain:hover{color:var(--accent)}
   </div>
 
   <article class="eng">
-    <h3>Enterprise Multi-Agent AI Coding Platform</h3>
-    <div class="meta">Xiaohongshu · AI Engineering Intern · Feb 2026 – Present · technical-validation platform</div>
-    <p>
-      Lead architect of a ~190K-line platform (15+ subsystems) automating
-      one-requirement-to-verified-code: Master-SubAgent orchestration behind a 15-step security
-      pipeline, 8-level fault-tolerant editing with Lint-verified self-healing, hybrid RAG
-      (pgvector + BM25 + knowledge graph), four MCP services, and an LLM gateway unifying
-      19 models with failover, cooldown and usage accounting at 10B+ token scale.
-    </p>
+    <div class="venue"><span class="v-main">Platform</span><span class="v-sub">Xiaohongshu</span><span class="v-sub">Feb 2026 –</span></div>
+    <div>
+      <h3>Enterprise Multi-Agent AI Coding Platform</h3>
+      <div class="meta">AI Engineering Intern · technical-validation platform · ~190K lines / 15+ subsystems</div>
+      <p>
+        Lead architect of a platform automating one-requirement-to-verified-code:
+        Master-SubAgent orchestration behind a 15-step security pipeline, 8-level fault-tolerant
+        editing with Lint-verified self-healing, hybrid RAG (pgvector + BM25 + knowledge graph),
+        four MCP services, and an LLM gateway unifying 19 models with failover, cooldown and
+        usage accounting at 10B+ token scale.
+      </p>
+    </div>
   </article>
 
   <article class="eng">
-    <h3>Selected Open Source</h3>
-    <div class="meta">github.com/<a href="https://github.com/LouisUltra" class="plain">LouisUltra</a></div>
-    <ul class="repos">
-      <li>
-        <span class="r-name">LLM-Value-Eval-Framework</span>
-        <span class="r-desc">evaluation of 10+ models · 100K+ unattended calls at 99%+</span>
-      </li>
-      <li>
-        <span class="r-name">Enterprise-Support-Agent</span>
-        <span class="r-desc">human-in-the-loop agent · 70% takeover · SWC 2026SR0597365</span>
-      </li>
-    </ul>
-    <div class="cert-line">
-      <b>Forage × Mastercard</b> — Advisors &amp; Consulting Services Job Simulation,
-      Certificate of Completion (Sep 2026).
-      <a class="vlink" href="https://www.theforage.com/simulations/mastercard/advisors-client-services-xvlw">verify&nbsp;↗</a>
+    <div class="venue"><span class="v-main">Open Source</span><span class="v-sub">github.com/LouisUltra</span></div>
+    <div>
+      <ul class="repos">
+        <li>
+          <span class="r-name">LLM-Value-Eval-Framework</span>
+          <span class="r-desc">evaluation of 10+ models · 100K+ unattended calls at 99%+</span>
+        </li>
+        <li>
+          <span class="r-name">Enterprise-Support-Agent</span>
+          <span class="r-desc">human-in-the-loop agent · 70% takeover · SWC 2026SR0597365</span>
+        </li>
+      </ul>
+      <div class="cert-line">
+        <span class="t">Forage × Mastercard</span> — Advisors &amp; Consulting Services Job Simulation,
+        Certificate of Completion, Sep 2026 ·
+        <a class="vlink" href="https://www.theforage.com/simulations/mastercard/advisors-client-services-xvlw">verify&nbsp;↗</a>
+      </div>
     </div>
   </article>
 </section>
