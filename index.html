@@ -9,15 +9,15 @@
 /* ————————————————————————————————
    LIN XINGYU · personal page
    editorial / journal-style design system
-   serif display · hairline rules · single accent
 ———————————————————————————————— */
 :root{
-  --paper:#FAF9F6;         /* warm paper, not pure white */
-  --ink:#191714;           /* near-black with warmth */
-  --ink-2:#4A4642;         /* body gray */
-  --ink-3:#8C8780;         /* meta gray */
-  --rule:#E6E2DA;          /* hairline */
-  --accent:#8B2500;        /* single accent: deep brick red */
+  --paper:#FAF9F6;
+  --ink:#191714;
+  --ink-2:#4A4642;
+  --ink-3:#8C8780;
+  --rule:#E6E2DA;
+  --rule-2:#D5D0C6;
+  --accent:#8B2500;
   --accent-soft:rgba(139,37,0,.08);
   --serif:Georgia,"Times New Roman","Songti SC","SimSun",serif;
   --sans:"Helvetica Neue",Helvetica,"PingFang SC","Microsoft YaHei",Arial,sans-serif;
@@ -31,109 +31,101 @@ body{
   text-rendering:optimizeLegibility;
 }
 ::selection{background:var(--accent);color:#fff}
-.page{max-width:720px;margin:0 auto;padding:88px 28px 96px}
+.page{max-width:740px;margin:0 auto;padding:92px 28px 90px}
 
 /* ————— masthead ————— */
-.masthead{border-bottom:1px solid var(--ink);padding-bottom:34px}
-.masthead .kicker{
-  font-family:var(--sans);font-size:11px;letter-spacing:.32em;
-  text-transform:uppercase;color:var(--ink-3);margin-bottom:26px;
+.masthead{border-bottom:1px solid var(--ink);padding-bottom:38px}
+.kicker{
+  font-size:11px;letter-spacing:.34em;text-transform:uppercase;
+  color:var(--ink-3);margin-bottom:34px;
 }
 h1{
-  font-family:var(--serif);font-weight:400;font-size:clamp(38px,7vw,54px);
-  letter-spacing:.01em;line-height:1.12;
+  font-family:var(--serif);font-weight:400;
+  font-size:clamp(52px,9vw,72px);line-height:1.04;letter-spacing:0;
 }
-h1 .accent{color:var(--accent);font-style:italic}
-.masthead .role{
-  font-family:var(--sans);font-size:14.5px;color:var(--ink-2);
-  margin-top:18px;max-width:56ch;
+h1 .cjk{
+  font-size:.42em;color:var(--ink-3);font-weight:400;
+  letter-spacing:.14em;margin-left:.35em;vertical-align:.12em;
 }
-.masthead .role em{font-style:normal;color:var(--ink)}
+.role{
+  font-size:15px;color:var(--ink-2);margin-top:26px;max-width:58ch;line-height:1.85;
+}
+.role em{font-style:italic;color:var(--ink)}
 .facts{
-  font-family:var(--serif);font-size:15px;color:var(--ink-2);
-  margin-top:30px;line-height:2.05;letter-spacing:.01em;
+  font-family:var(--serif);font-size:15.5px;color:var(--ink-2);
+  margin-top:34px;letter-spacing:.01em;white-space:nowrap;
 }
 .facts b{font-weight:600;color:var(--ink);font-variant-numeric:oldstyle-nums}
-.facts .sep{color:var(--ink-3);padding:0 .55em}
+.facts .sep{color:var(--rule-2);padding:0 .5em}
 
 /* ————— section headers ————— */
-section{margin-top:74px}
+section{margin-top:76px}
 .sec-head{
   display:flex;align-items:baseline;gap:14px;
-  border-bottom:1px solid var(--rule);padding-bottom:10px;margin-bottom:8px;
+  border-bottom:1px solid var(--rule);padding-bottom:10px;margin-bottom:6px;
 }
-.sec-head .no{
-  font-family:var(--serif);font-style:italic;font-size:13px;color:var(--accent);
-}
+.sec-head .no{font-family:var(--serif);font-style:italic;font-size:13px;color:var(--ink-3)}
 .sec-head h2{
-  font-family:var(--sans);font-weight:700;font-size:12px;
-  letter-spacing:.26em;text-transform:uppercase;color:var(--ink);
+  font-weight:700;font-size:12px;letter-spacing:.28em;
+  text-transform:uppercase;color:var(--ink);
 }
 .sec-head .count{
   margin-left:auto;font-family:var(--serif);font-style:italic;
   font-size:12.5px;color:var(--ink-3);
 }
 
-/* ————— publication list: journal-catalog style ————— */
-.pub{display:grid;grid-template-columns:112px 1fr;gap:0 26px;padding:26px 0 24px;
-     border-bottom:1px solid var(--rule)}
+/* ————— publications ————— */
+.pub{display:grid;grid-template-columns:118px 1fr;gap:0 28px;
+     padding:28px 0 26px;border-bottom:1px solid var(--rule)}
 .pub:last-child{border-bottom:none}
 .pub .venue{
-  font-family:var(--sans);font-size:10.5px;letter-spacing:.14em;
-  text-transform:uppercase;color:var(--ink-3);line-height:1.9;
-  padding-top:6px;
+  font-size:10.5px;letter-spacing:.15em;text-transform:uppercase;
+  color:var(--ink-3);line-height:2.0;padding-top:7px;
 }
-.pub .venue .v-main{color:var(--ink);font-weight:700}
-.pub .venue .v-note{display:block;color:var(--accent);font-weight:600}
+.pub .venue .v-main{color:var(--ink);font-weight:700;display:block}
+.pub .venue .v-sub{display:block}
 .pub h3{
-  font-family:var(--serif);font-weight:600;font-size:19.5px;line-height:1.42;
-  letter-spacing:.005em;text-wrap:balance;
+  font-family:var(--serif);font-weight:600;font-size:20px;line-height:1.42;
+  letter-spacing:.004em;text-wrap:balance;
 }
-.pub .meta{
-  font-family:var(--sans);font-size:12.5px;color:var(--ink-3);
-  margin:6px 0 12px;letter-spacing:.02em;
-}
-.pub .meta .u{color:var(--accent)}
+.pub .meta{font-size:12.5px;color:var(--ink-3);margin:7px 0 13px;letter-spacing:.02em}
+.pub .meta .hero{color:var(--ink);font-weight:600}
 .pub p{
-  font-size:14.5px;color:var(--ink-2);line-height:1.78;
-  text-align:justify;hyphens:auto;
+  font-size:14.5px;color:var(--ink-2);line-height:1.8;
+  text-align:left;max-width:58ch;
 }
-.pub p b{font-weight:600;color:var(--ink)}
 
-/* ————— engineering entries ————— */
-.eng{padding:24px 0 22px;border-bottom:1px solid var(--rule)}
+/* ————— engineering ————— */
+.eng{padding:26px 0 24px;border-bottom:1px solid var(--rule)}
 .eng:last-child{border-bottom:none}
 .eng h3{font-family:var(--serif);font-weight:600;font-size:18px;line-height:1.45}
-.eng .meta{font-family:var(--sans);font-size:12.5px;color:var(--ink-3);margin:5px 0 10px}
-.eng p{font-size:14.5px;color:var(--ink-2);text-align:justify}
-.repos{list-style:none;margin-top:2px}
+.eng .meta{font-size:12.5px;color:var(--ink-3);margin:5px 0 11px}
+.eng p{font-size:14.5px;color:var(--ink-2);text-align:left;max-width:60ch}
+.repos{list-style:none;margin-top:4px}
 .repos li{
-  font-size:14px;color:var(--ink-2);padding:7px 0;
+  font-size:13.5px;color:var(--ink-2);padding:8px 0;
   border-bottom:1px dotted var(--rule);
   display:flex;justify-content:space-between;gap:18px;align-items:baseline;
 }
 .repos li:last-child{border-bottom:none}
-.repos .r-name{font-family:var(--mono);font-size:13px;color:var(--ink)}
-.repos .r-desc{color:var(--ink-3);font-size:13px;text-align:right}
-
-/* ————— certification ————— */
-.cert{padding:22px 0;border-bottom:1px solid var(--rule)}
-.cert:last-child{border-bottom:none}
-.cert h3{font-family:var(--serif);font-size:17px;font-weight:600}
-.cert .meta{font-family:var(--sans);font-size:12.5px;color:var(--ink-3);margin:4px 0 10px}
-.cert p{font-size:14px;color:var(--ink-2)}
-.cert .vcode{font-family:var(--mono);font-size:12px;color:var(--ink-3)}
+.repos .r-name{font-family:var(--mono);font-size:12.5px;color:var(--ink)}
+.repos .r-desc{color:var(--ink-3);font-size:12.5px;text-align:right}
+.cert-line{
+  padding-top:18px;margin-top:6px;border-top:1px dotted var(--rule);
+  font-size:13.5px;color:var(--ink-2);
+}
+.cert-line b{font-weight:600;color:var(--ink)}
+.cert-line .vlink{font-size:12.5px}
 
 /* ————— contact ————— */
-.contact{padding-top:4px}
 .contact .row{
-  display:flex;gap:40px;flex-wrap:wrap;font-size:14.5px;color:var(--ink-2);
-  padding:18px 0;border-bottom:1px dotted var(--rule);
+  display:flex;gap:44px;font-size:14.5px;color:var(--ink-2);
+  padding:15px 0;border-bottom:1px dotted var(--rule);
 }
 .contact .row:last-child{border-bottom:none}
 .contact .k{
-  font-family:var(--sans);font-size:11px;letter-spacing:.22em;
-  text-transform:uppercase;color:var(--ink-3);min-width:84px;padding-top:3px;
+  font-size:11px;letter-spacing:.24em;text-transform:uppercase;
+  color:var(--ink-3);min-width:88px;padding-top:3px;
 }
 a{color:var(--accent);text-decoration:none;
   background:linear-gradient(var(--accent-soft),var(--accent-soft)) left bottom / 0 1px no-repeat;
@@ -144,20 +136,16 @@ a.plain:hover{color:var(--accent)}
 
 /* ————— colophon ————— */
 .colophon{
-  margin-top:84px;border-top:1px solid var(--ink);padding-top:22px;
+  margin-top:86px;border-top:1px solid var(--ink);padding-top:24px;
   font-family:var(--serif);font-style:italic;font-size:12.5px;
-  color:var(--ink-3);line-height:1.9;
-}
-.colophon .fin{
-  font-style:normal;font-family:var(--sans);font-size:10.5px;
-  letter-spacing:.3em;text-transform:uppercase;color:var(--ink-3);
-  margin-top:14px;
+  color:var(--ink-3);line-height:1.95;
 }
 
-@media (max-width:560px){
+@media (max-width:580px){
   .page{padding:56px 20px 72px}
-  .pub{grid-template-columns:1fr;gap:6px 0}
-  .pub .venue{display:flex;gap:12px;padding-top:0}
+  .pub{grid-template-columns:1fr;gap:8px 0}
+  .pub .venue{display:flex;gap:14px;padding-top:0}
+  .facts{white-space:normal}
   .contact .row{gap:0;flex-direction:column}
   .contact .k{min-width:0;margin-bottom:2px}
 }
@@ -172,10 +160,9 @@ a.plain:hover{color:var(--accent)}
 <body>
 <div class="page">
 
-<!-- ——— masthead ——— -->
 <header class="masthead">
   <div class="kicker">AI Engineering · Research · Shanghai</div>
-  <h1>Lin&nbsp;Xingyu<span class="accent">&nbsp;林星宇</span></h1>
+  <h1>Lin&nbsp;Xingyu<span class="cjk">林星宇</span></h1>
   <p class="role">
     <em>Engineer-turned-researcher.</em>&nbsp;Architect of a ~190K-line enterprise
     multi-agent platform; converts production problems into first-author research —
@@ -183,14 +170,10 @@ a.plain:hover{color:var(--accent)}
     M.Eng. in AI, East China Normal University, Class of 2027.
   </p>
   <div class="facts">
-    <b>4</b> first-author submissions under review<span class="sep">·</span>
-    <b>1</b> invention patent filed<span class="sep">·</span>
-    <b>7</b> software copyrights<span class="sep">·</span>
-    <b>10B+</b> tokens scheduled in production
+    <b>4</b> first-author submissions<span class="sep">·</span><b>1</b> patent filed<span class="sep">·</span><b>7</b> software copyrights<span class="sep">·</span><b>10B+</b> tokens in production
   </div>
 </header>
 
-<!-- ——— publications ——— -->
 <section>
   <div class="sec-head">
     <span class="no">I.</span>
@@ -201,19 +184,18 @@ a.plain:hover{color:var(--accent)}
   <article class="pub">
     <div class="venue">
       <span class="v-main">ICSE 2027</span>
-      <span class="v-note">CCF-A</span>
-      double-blind
+      <span class="v-sub">CCF-A</span>
+      <span class="v-sub">double-blind</span>
     </div>
     <div>
       <h3>Semantic Indexing for Agentic Code Localization in Large&nbsp;Repositories</h3>
-      <div class="meta">Code Atlas · <span class="u">under review</span> · patent filed, first inventor · piloted on real business modules</div>
+      <div class="meta">Code Atlas · patent filed, first inventor · <span class="hero">top-1 (W-R@5) on all five benchmarked repositories · 97.9% SWE-bench Verified</span></div>
       <p>
         Product-style natural-language queries fail to locate code in industrial
         repositories — the strongest commercial agents fall from 96%+ to 52.9% at scale,
         grep-based baselines to 1.3%. A three-layer Graph-RAG method: dependency-topological
         semantic indexing with bilingual, AST-validated descriptions; HAC module clustering;
-        staged retrieval. <b>Top-1 (W-R@5) on all five benchmarked repositories</b> up to 49K
-        files, <b>97.9% on SWE-bench Verified</b>, established over 34 controlled ablations.
+        staged retrieval. Established over 34 controlled ablations; piloted on real business modules.
       </p>
     </div>
   </article>
@@ -221,18 +203,18 @@ a.plain:hover{color:var(--accent)}
   <article class="pub">
     <div class="venue">
       <span class="v-main">ICRA 2027</span>
-      double-blind
+      <span class="v-sub">double-blind</span>
     </div>
     <div>
       <h3>Outcome-Conditioned End-Effector Geometry Across Vision-Language-Action Policies</h3>
-      <div class="meta"><span class="u">under review</span> · 15,000 closed-loop LIBERO rollouts · four policies</div>
+      <div class="meta">15,000 closed-loop LIBERO rollouts · four policies · <span class="hero">median DTW 0.0120 m (both-success) vs 0.0380 m (mixed)</span></div>
       <p>
         Task success alone does not establish whether VLA policies execute alike. Cross-policy
         end-effector geometry over 15,000 closed-loop rollouts of OpenVLA, OpenVLA-OFT, UniVLA
-        and π0.5: <b>both-success pairs sit at a median DTW of 0.0120&nbsp;m versus 0.0380&nbsp;m</b>
-        when exactly one succeeds — an ordering that holds across every task, pair and
-        representation examined. A matched comparison design throughout: outcome strata,
-        configuration-matched pairs, within-policy baselines, demonstration references.
+        and π0.5: both-success pairs sit far closer than mixed-outcome pairs — an ordering that
+        holds across every task, pair and representation examined. A matched comparison design
+        throughout: outcome strata, configuration-matched pairs, within-policy baselines,
+        demonstration references.
       </p>
     </div>
   </article>
@@ -240,19 +222,18 @@ a.plain:hover{color:var(--accent)}
   <article class="pub">
     <div class="venue">
       <span class="v-main">ICASSP 2027</span>
-      with advisor
+      <span class="v-sub">with advisor</span>
     </div>
     <div>
       <h3>Collapse, Not Complexity: Failure-Conditioned Decomposition Repair for End-to-End Document Parsing</h3>
-      <div class="meta"><span class="u">under review</span> · with Dehui Du (advisor) · East China Normal University</div>
+      <div class="meta">with Dehui Du (advisor) · 3B–8B backbones · <span class="hero">+1.40 Overall at 1.13× tokens · +2.41 on 1,175 held-out pages</span></div>
       <p>
         Complexity is the wrong decision variable for document-VLM reasoning modes: reasoning
-        lowers mean quality by 2.21 Overall at 1.54× tokens, and pre-inference features cannot
-        predict its benefit (AUROC 0.47). Benefit concentrates where the ordinary pass has
-        already collapsed — a repetition pathology, not layout difficulty. A reference-free
-        trigger on the already-paid decoding trace, then projection-based decomposition and
-        region re-parsing: <b>+1.40 Overall at 1.13× tokens</b>, replicating across 3B–8B
-        backbones; <b>+2.41 (95% CI [1.64, 3.46])</b> on 1,175 held-out pages, parameters frozen.
+        lowers mean quality at 1.54× tokens, and pre-inference features cannot predict its
+        benefit (AUROC 0.47). Benefit concentrates where the ordinary pass has already
+        collapsed — a repetition pathology, not layout difficulty. A reference-free trigger on
+        the already-paid decoding trace, then projection-based decomposition and region
+        re-parsing; all parameters frozen on held-out evaluation.
       </p>
     </div>
   </article>
@@ -260,23 +241,22 @@ a.plain:hover{color:var(--accent)}
   <article class="pub">
     <div class="venue">
       <span class="v-main">IEEE BIBM</span>
-      2026 · sole author
+      <span class="v-sub">2026 · sole author</span>
     </div>
     <div>
       <h3>From PDF to Evidence: Structure-Aware Retrieval for Clinical Practice Guidelines</h3>
-      <div class="meta"><span class="u">under review</span> · sole author · 26 guidelines · 199 annotated queries</div>
+      <div class="meta">26 guidelines · 199 annotated queries · <span class="hero">best element-level localization · Hit@1 0.382 at 3.8× less context</span></div>
       <p>
         Clinical guidelines ship as unstructured PDFs whose tables, flowcharts and graded
         recommendations carry the key evidence. Structure-aware evidence units — sections,
         table rows, flowchart paths, graded recommendations with preserved headers and branch
-        labels — achieve <b>the best element-level localization</b> across BM25 / Dense / Hybrid
-        retrievers (Hit@1 0.382) at 3.8× less context than page-level retrieval (p&nbsp;&lt;&nbsp;0.005).
+        labels — outperform fixed-chunking and page-level retrieval across BM25 / Dense /
+        Hybrid retrievers (p&nbsp;&lt;&nbsp;0.005).
       </p>
     </div>
   </article>
 </section>
 
-<!-- ——— engineering ——— -->
 <section>
   <div class="sec-head">
     <span class="no">II.</span>
@@ -302,52 +282,34 @@ a.plain:hover{color:var(--accent)}
     <ul class="repos">
       <li>
         <span class="r-name">LLM-Value-Eval-Framework</span>
-        <span class="r-desc">evaluation of 10+ models · 100K+ unattended calls at 99%+ success</span>
+        <span class="r-desc">evaluation of 10+ models · 100K+ unattended calls at 99%+</span>
       </li>
       <li>
         <span class="r-name">Enterprise-Support-Agent</span>
-        <span class="r-desc">human-in-the-loop agent · 70% takeover · software copyright 2026SR0597365</span>
+        <span class="r-desc">human-in-the-loop agent · 70% takeover · SWC 2026SR0597365</span>
       </li>
     </ul>
+    <div class="cert-line">
+      <b>Forage × Mastercard</b> — Advisors &amp; Consulting Services Job Simulation,
+      Certificate of Completion (Sep 2026).
+      <a class="vlink" href="https://www.theforage.com/simulations/mastercard/advisors-client-services-xvlw">verify&nbsp;↗</a>
+    </div>
   </article>
 </section>
 
-<!-- ——— certification ——— -->
-<section>
-  <div class="sec-head">
-    <span class="no">III.</span>
-    <h2>Certification</h2>
-  </div>
-
-  <article class="cert">
-    <h3>Forage × Mastercard — Advisors &amp; Consulting Services Job Simulation</h3>
-    <div class="meta">Certificate of Completion · September 2026</div>
-    <p>
-      Promotion optimization (25-store historical analysis, matched-control test design) and
-      data-driven storytelling (client-facing presentation).
-      <span class="vcode">Enrolment&nbsp;verification&nbsp;6aa1005572c3c371115966fb</span>
-    </p>
-  </article>
-</section>
-
-<!-- ——— contact ——— -->
 <section class="contact">
   <div class="sec-head">
-    <span class="no">IV.</span>
+    <span class="no">III.</span>
     <h2>Contact</h2>
   </div>
   <div class="row"><span class="k">Email</span><span>xingyulin@stu.ecnu.edu.cn</span></div>
   <div class="row"><span class="k">GitHub</span><span><a href="https://github.com/LouisUltra">github.com/LouisUltra</a></span></div>
-  <div class="row"><span class="k">Phone</span><span>+86 183-1508-0199</span></div>
 </section>
 
-<!-- ——— colophon ——— -->
 <footer class="colophon">
   Papers under double-blind review (ICSE · ICRA · BIBM) are listed at title-and-abstract
   level; full texts are available upon reasonable request and will be published here upon
-  acceptance.<br>
-  Set in Georgia &amp; PingFang SC · a single page, no frameworks ·
-  <span class="fin">Last revised September 2026</span>
+  acceptance. Last revised September 2026.
 </footer>
 
 </div>
