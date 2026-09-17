@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LIN Xingyu | AI Engineering & Research</title>
+<meta name="description" content="LIN Xingyu - M.Eng. AI at ECNU. Four first-author submissions under review (ICSE/ICRA/ICASSP/BIBM), enterprise multi-agent platform architect.">
+<style>
+:root{
+  --ink:#1a1a1a; --gray:#555; --light:#888; --line:#e5e5e5; --bg:#fdfdfc;
+  --accent:#b34700; --card:#ffffff; --chip:#f2efe9;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:"Helvetica Neue",Helvetica,"PingFang SC","Microsoft YaHei",Arial,sans-serif;
+     color:var(--ink);background:var(--bg);line-height:1.65;font-size:16px}
+.wrap{max-width:860px;margin:0 auto;padding:48px 24px 80px}
+a{color:var(--accent);text-decoration:none;border-bottom:1px solid rgba(179,71,0,.25)}
+a:hover{border-bottom-color:var(--accent)}
+h1{font-size:34px;letter-spacing:.5px;font-weight:700}
+h2{font-size:15px;letter-spacing:2.5px;text-transform:uppercase;color:var(--gray);
+   margin:56px 0 18px;font-weight:700;border-bottom:2px solid var(--line);padding-bottom:8px}
+.tag{display:inline-block;font-size:12.5px;background:var(--chip);color:var(--gray);
+     border-radius:3px;padding:2px 9px;margin:2px 4px 2px 0;white-space:nowrap}
+.card{background:var(--card);border:1px solid var(--line);border-radius:8px;
+      padding:22px 24px;margin-bottom:16px;box-shadow:0 1px 3px rgba(0,0,0,.04)}
+.card h3{font-size:17.5px;margin-bottom:6px;line-height:1.4}
+.card .meta{font-size:13px;color:var(--light);margin-bottom:10px}
+.card p{font-size:14.5px;color:var(--gray)}
+.stat-row{display:flex;gap:28px;flex-wrap:wrap;margin-top:22px}
+.stat b{display:block;font-size:26px;color:var(--ink);line-height:1.2}
+.stat span{font-size:12.5px;color:var(--light)}
+ul.links{list-style:none;margin-top:10px}
+ul.links li{font-size:14.5px;color:var(--gray);padding:3px 0}
+ul.links li b{color:var(--ink)}
+.foot{margin-top:64px;padding-top:20px;border-top:1px solid var(--line);
+      font-size:12.5px;color:var(--light)}
+@media print{body{background:#fff}.card{box-shadow:none;break-inside:avoid}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <h1>LIN Xingyu&nbsp;·&nbsp;林星宇</h1>
+  <p style="margin-top:8px;color:var(--gray);font-size:16.5px">
+    M.Eng. in Artificial Intelligence, East China Normal University (Class of 2027)&nbsp;·&nbsp;Shanghai
+  </p>
+  <p style="margin-top:14px;font-size:15px;color:var(--gray);max-width:640px">
+    AI engineer-turned-researcher: architect of a ~190K-line enterprise multi-agent coding platform,
+    who converts production problems into first-author research — rigorous evaluation, controlled
+    experiments, and methods that ship back into engineering.
+  </p>
+  <div class="stat-row">
+    <div class="stat"><b>4</b><span>first-author submissions under review</span></div>
+    <div class="stat"><b>1</b><span>invention patent filed (first inventor)</span></div>
+    <div class="stat"><b>190K</b><span>lines, lead architect</span></div>
+    <div class="stat"><b>10B+</b><span>tokens scheduled at scale</span></div>
+  </div>
+  <div style="margin-top:20px">
+    <span class="tag">AI4SE / Code Intelligence</span><span class="tag">Robotics · VLA Evaluation</span>
+    <span class="tag">Document Parsing</span><span class="tag">LLM Evaluation</span>
+    <span class="tag">Multi-Agent Systems</span><span class="tag">RAG</span>
+  </div>
+</header>
+
+<h2>Publications · first author, under review</h2>
+
+<div class="card">
+  <h3>Semantic Indexing for Agentic Code Localization in Large Repositories (Code Atlas)</h3>
+  <div class="meta">ICSE 2027 (CCF-A) · under review · double-blind</div>
+  <p>Product-style natural-language queries fail to locate code in industrial repositories —
+  the best commercial agents drop from 96%+ to 52.9% at scale. A three-layer Graph-RAG method:
+  dependency-topological semantic indexing with bilingual AST-validated descriptions,
+  HAC module clustering, and staged retrieval. Top-1 (W-R@5) across all five benchmarked
+  repositories up to 49K files; 97.9% on SWE-bench Verified; 34 controlled ablations.
+  Patent filed (first inventor); piloted on real business modules.</p>
+</div>
+
+<div class="card">
+  <h3>Outcome-Conditioned End-Effector Geometry Across Vision-Language-Action Policies</h3>
+  <div class="meta">ICRA 2027 · under review · double-blind</div>
+  <p>Task success alone does not establish whether VLA policies physically execute alike.
+  Cross-policy end-effector geometry over 15,000 closed-loop LIBERO rollouts from four policies
+  (OpenVLA / OpenVLA-OFT / UniVLA / π0.5): both-success pairs sit at a median DTW of 0.0120 m
+  versus 0.0380 m when exactly one succeeds — an ordering that holds across every task, pair and
+  representation. A matched comparison design: outcome strata, configuration-matched pairs,
+  within-policy baselines, demonstration references, fixed windows, alignment sensitivity.</p>
+</div>
+
+<div class="card">
+  <h3>Collapse, Not Complexity: Failure-Conditioned Decomposition Repair for End-to-End Document Parsing</h3>
+  <div class="meta">ICASSP 2027 · under review · with advisor</div>
+  <p>Complexity is the wrong decision variable for document-VLM reasoning modes: reasoning lowers
+  mean quality (−2.21 Overall) at 1.54× tokens, and pre-inference features cannot predict its
+  benefit (AUROC 0.47). Benefit concentrates on pages whose ordinary pass has collapsed —
+  a repetition pathology, not layout difficulty. A reference-free trigger on the already-paid
+  decoding trace, followed by projection-based decomposition and region re-parsing:
+  +1.40 Overall at 1.13× tokens, replicating across 3B–8B backbones; +2.41 (CI [1.64, 3.46])
+  on 1,175 held-out benchmark pages with all parameters frozen.</p>
+</div>
+
+<div class="card">
+  <h3>From PDF to Evidence: Structure-Aware Retrieval for Clinical Practice Guidelines</h3>
+  <div class="meta">IEEE BIBM 2026 · under review · sole author · double-blind</div>
+  <p>Clinical guidelines are published as unstructured PDFs whose tables, flowcharts and graded
+  recommendations carry the key evidence. Structure-aware evidence units — sections, table rows,
+  flowchart paths, graded recommendations with preserved headers and branch labels — achieve the
+  best element-level localization across BM25 / Dense / Hybrid retrievers (Hit@1 0.382) at 3.8×
+  less context than page-level retrieval, on a 26-document, 16-specialty corpus with 199 annotated
+  queries (p&nbsp;&lt;&nbsp;0.005).</p>
+</div>
+
+<h2>Engineering</h2>
+
+<div class="card">
+  <h3>Enterprise Multi-Agent AI Coding Platform</h3>
+  <div class="meta">Xiaohongshu · AI Engineering Intern · Feb 2026 – Present · technical validation platform</div>
+  <p>Lead architect (~190K lines, 15+ subsystems): Master-SubAgent orchestration with a 15-step
+  security pipeline, 8-level fault-tolerant editing with Lint-verified self-healing, hybrid RAG
+  (pgvector + BM25 + knowledge graph), 4 MCP services, and an LLM gateway unifying 19 models with
+  failover and usage accounting at 10B+ token scale.</p>
+</div>
+
+<div class="card">
+  <h3>Open Source</h3>
+  <ul class="links">
+    <li><b>LLM-Value-Eval-Framework</b> — automated evaluation of 10+ models; 100K+ unattended calls at 99%+ success ·
+        <a href="https://github.com/LouisUltra/LLM-Value-Eval-Framework">GitHub</a></li>
+    <li><b>Enterprise-Support-Agent</b> — human-in-the-loop customer-service agent (70% takeover, 5 min → 45 s);
+        software copyright 2026SR0597365 ·
+        <a href="https://github.com/LouisUltra/Enterprise-Support-Agent">GitHub</a></li>
+    <li><b>More repositories</b> ·
+        <a href="https://github.com/LouisUltra?tab=repositories">github.com/LouisUltra</a></li>
+  </ul>
+</div>
+
+<h2>Certification</h2>
+
+<div class="card">
+  <h3>Forage × Mastercard · Advisors &amp; Consulting Services Job Simulation</h3>
+  <div class="meta">Certificate of Completion · Sep 2026</div>
+  <p>Promotion optimization (25-store historical analysis, matched-control test design) and
+  data-driven storytelling (client-facing presentation). Enrolment verification code
+  6aa1005572c3c371115966fb.</p>
+</div>
+
+<h2>Contact</h2>
+<div class="card">
+  <ul class="links">
+    <li><b>Email</b>&nbsp;&nbsp;xingyulin@stu.ecnu.edu.cn</li>
+    <li><b>GitHub</b>&nbsp;&nbsp;<a href="https://github.com/LouisUltra">github.com/LouisUltra</a></li>
+    <li><b>Phone</b>&nbsp;&nbsp;+86 183-1508-0199</li>
+  </ul>
+</div>
+
+<div class="foot">
+  Papers under double-blind review (ICSE / ICRA / BIBM) are listed at title-and-abstract level;
+  full texts are available upon reasonable request and will be published here upon acceptance.
+  Last updated: Sep 2026.
+</div>
+
+</div>
+</body>
+</html>
